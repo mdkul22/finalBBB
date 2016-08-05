@@ -92,6 +92,14 @@ class Logger():
             writer.writerow(d.keys())
             writer.writerows(itertools.izip_longest(*d.values()))
 
+    def return_hundred(self, list):
+
+        x = len(list)
+        new = list[(x - 100):x]
+        return new
+
+
+
 if __name__ == "__main__":
     x = Logger()
     for y in range(0, 90):
