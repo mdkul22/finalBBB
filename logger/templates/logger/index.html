@@ -1,0 +1,147 @@
+{%load static%}
+<!DOCTYPE html>
+<html ng-app="mainApp" lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>SolarMobil | Home</title>
+     <script src="{%static 'logger/lib/jquery-2.2.4.js'%}"></script>
+    <script src="{% static 'logger/bootstrap/js/bootstrap.min.js'%}"></script>
+    <link href="{% static 'logger/bootstrap/css/bootstrap.min.css'%}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'logger/css/graph.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'logger/css/topbar.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'logger/css/statusbar.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'logger/css/chassis.css'%}" />
+    <script language="javascript" type="text/javascript" src="{%static 'logger/lib/gauge.js'%}"></script>
+    <script language="javascript" type="text/javascript" src="{%static 'logger/flot/jquery.flot.js'%}"></script>
+ <style>
+  body{
+            overflow-x: hidden;
+        }
+ #sidemenutoggle{
+    padding:0;
+    margin:0;
+ }
+ #workplace{
+    margin-top:55px;
+ }
+ </style>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <h3><strong>StatusBar</strong></h3>
+                </li>
+                <li>
+                
+                    <div id = "speed">
+                    <canvas id="foo" height="125px" width="150px"></canvas>
+                    <div id="showspeed">
+                        <h3 id="setval"></h3></div>
+                <script>
+                        var speed = 80;
+                    var opts = {
+                      lines: 12, // The number of lines to draw
+                      angle: 0.18, // The length of each line
+                      lineWidth: 0.44, // The line thickness
+                      pointer: {
+                        length: 0.9, // The radius of the inner circle
+                        strokeWidth: 0.035, // The rotation offset
+                        color: '#000000' // Fill color
+                      },
+                      limitMax: 'false',   // If true, the pointer will not go past the end of the gauge
+                      colorStart: '#813772',   // Colors
+                      colorStop: '#813772',    // just experiment with them
+                      strokeColor: '#E0E0E0',   // to see which ones work best for you
+                      generateGradient: true
+                    };
+                    var target = document.getElementById('foo'); // your canvas element
+                    var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+                    gauge.maxValue = 100; // set max gauge value
+                    gauge.animationSpeed = 32; // set animation speed (32 is default value)
+                    gauge.set(speed);
+                    document.getElementById("setval").innerHTML = speed + "km/h" ;
+                    </script>
+                </div>
+                </li>
+                <li>
+                    <div id="battery">
+                          <div id="cont">
+                            <div class="bar" id="b1"></div>
+                            <div class="bar" id="b2"></div>
+                            <div class="bar" id="b3"></div>
+                            <div class="bar" id="b4"></div>
+                            </div>
+                          <div id="top"></div>
+                          <div class="clear"></div>
+                          <!--<div id="perc"><p1>100%</p1></div>-->
+                        </div>
+                </li>
+                <li>
+                    <div id="bms">
+                            <h1>BMS</h1>
+                            <p id="online">Online</p>
+                            <p id="offline">Offline</p>
+                        </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+            <div class="col-md-12" id="topbar">
+                <div class="col-md-1" id="logocircle">
+                    <img id="logo" class="center-block" src="{%static 'logger/pics/logo.png'%}" alt="logo" height="115px"/>
+                </div>
+                <div class="col-md-3" id="banner"><img id="bannerpic" class="center-block" src="{%static 'logger/pics/banner.jpg'%}" alt="banner" height="115px"/></div>
+                <div class="btn-group pull-right" id="navbar">
+                  <button class="btn btn-circle dropdown-toggle" id="menubtn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-list white" aria-hidden="true"></span>
+                  </button>
+                  <div class="dropdown-menu" id="dropmenu">
+                    <p><span class="glyphicon glyphicon-user white" aria-hidden="true"></span><strong> {{user.get_username}}</strong></p>
+                    <hr class="white" size="30">
+                    <div class="menuitem"><p><a class="dropdown-item" ui-sref="home"><strong>HOME</strong></a></p></div>
+                    <div class="menuitem"><p><a class="dropdown-item" ui-sref="sensors"><strong>SENSORS</strong></a></p></div>
+                    <div class="menuitem"><p><a class="dropdown-item" ui-sref="graph_bms"><strong>GRAPH</strong></a></p></div>
+                    <div class="menuitem"><p><a class="dropdown-item" href="{%url 'logout'%}"><strong>LOGOUT</strong></a></p></div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-1" id="sidemenutoggle">
+            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-chevron-right white"></span></a>
+            </div>
+            <div ui-view>Loading...</div>
+        </div>
+        </div>
+
+
+    </div>
+<script type="text/javascript" src="{{ STATIC_URL }}logger/lib/angular.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}logger/lib/angular-route.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}logger/lib/angular-resource.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}logger/lib/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}logger/js/app.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}logger/js/controllers.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}logger/js/services.js"></script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

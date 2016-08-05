@@ -1,0 +1,93 @@
+body{
+    overflow-x: hidden;
+ }
+    #topbar{
+        background-color:#062f4f;
+        height:15vh;
+    }
+    .subview{
+        height:85vh;
+        padding-left:0;
+        padding-right:0;
+    }
+    #login-div{
+        border-left:2px solid #062f4f;
+        
+    }
+    #heading{
+        margin-top:10vh;
+    }
+    input[type='text'] {
+    background-image: url(../pics/username.jpg);
+    background-size:40px 40px;
+    background-position: 6px center;
+    background-repeat: no-repeat;
+    background-color:#062f4f;
+    color:white;
+    font-size:1.5em;
+    padding-left:55px;
+    height:8vh;
+}
+    input[type='password'] {
+    background-image: url(../pics/password.jpg);
+    background-size:40px 40px;
+    background-position: 6px center;
+    background-repeat: no-repeat;
+    background-color:#062f4f;
+    color:white;
+    font-size:1.5em;
+    padding-left:55px;
+    height:8vh;
+}
+    .btn{
+        background-color:#813772;
+        color:white;
+        font-size:1.5em;
+        height:8vh;
+    }
+    #footer{
+        margin-top:10vh;
+        padding:0;
+    }
+    #banner{
+        padding-top:1px;
+        background-color: #062f4f;
+        height:10vh;
+        color:white;
+    }
+    #banner h1{
+        padding-top:0;
+    }
+    #images img{
+        padding:1vh 0 0 2vh;
+    }
+    #logo{
+        margin-top:15vh;
+    }
+@media all and (max-width: 1920px) and (min-width: 1367px){
+    #logo{
+        height:400px;
+    }
+    input[type='password'] {
+    	font-size:1.8em;
+    	padding-left: 65px;
+        background-size:50px 50px;
+        }
+    input[type='text'] {
+    	font-size:1.8em;
+    	padding-left: 65px;
+        background-size:50px 50px;
+        }
+        #facebook{
+            height:80px;
+        }
+        #insta{
+            height:80px;
+        }
+        #tweeter{
+            height:80px;
+        }
+        #banner h2{
+            font-size:60px;
+        }
+    }

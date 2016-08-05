@@ -1,0 +1,76 @@
+.container-fluid{
+	margin:0;
+	padding:0;
+}
+#topbar{
+	background-color:#062f4f;
+	height:20vh;
+	padding:0;
+}
+#logo{
+	height:100%;
+}
+#logocircle{
+	margin:4px 0 0 10px;
+	height:90%;
+	background-color:#062f4f;
+	border-radius: 50%;
+	padding:3px 0 0 0px;
+}
+#banner{
+	color:white;
+	margin-top:10px;
+}
+#bannerpic{
+		height:100%;
+		width:100%;
+	}
+.btn-circle{
+	height:60px;
+	width:60px;
+	border-radius: 50%;
+}
+#navbar{
+	margin:25px 20px 0 0;
+}
+#menubtn{
+	background-color: #813772;
+}
+.white{
+	color:#FFFFFF;
+	font-size:20px;
+}
+#dropmenu{
+	background-color:#813772;
+	color:white;
+	text-align:center;
+}
+.menuitem{
+	width:75%;
+	height:30px;
+	background-color:#512a49;
+	border-radius: 5%;
+	margin:3px 0 2px 20px;
+	text-align:center;
+}
+.menuitem p:hover{
+	font-size: 1.1em;
+}
+#dropmenu a{
+	color:white;
+	text-decoration: none;
+}
+@media all and (max-width: 1920px) and (min-width: 1367px){
+	#topbar{
+		height:17vh;
+	}
+	#menubtn{
+		height:80px;
+		width: 80px;
+		margin:10px;
+	}
+	#mainimg{
+		height:650px;
+	}
+
+}

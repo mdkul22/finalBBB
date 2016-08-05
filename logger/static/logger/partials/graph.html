@@ -1,0 +1,66 @@
+<div class="col-md-11" id="workplace">
+            <div id="graphdiv">
+            <div id="graphnav">
+            <ul class="nav nav-tabs">
+            <li class="navtab" ui-sref-active="active"><a ui-sref="graph_bms"><strong>BMS</strong></a></li>
+            <li class="navtab" ui-sref-active="active"><a ui-sref="graph_mc"><strong>MOTOR CONTROLLER</strong></a></li>
+            <li class="navtab" ui-sref-active="active"><a ui-sref="graph_mppt"><strong>MPPT</strong></a></li>
+            <li class="navtab" ui-sref-active="active"><a ui-sref="graph_solpan"><strong>GENERAL</strong></a></li>
+            <li class="navtab" ui-sref-active="active"><a ui-sref="graph_motor"><strong>MOTOR</strong></a></li>
+            </ul>
+            <div class="row">
+            <div class="col-md-11" id="graphplate">
+              <div class="row">
+                <div class="col-xs-6 col-sm-6" id="sensorarea">
+                    <div class="row">
+                      <div class="col-sm-5 sensortab" ng-click="replot(1)">
+                        <div class="col-xs-12 valuehead">{{vh1}}</div><div class="valueplace" id="val1"></div>
+                      </div>
+                      <div class="col-sm-5 sensortab" ng-click="replot(2)">
+                        <div class="col-xs-12 valuehead">{{vh2}}</div><div class="valueplace" id="val2"></div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-5 sensortab" ng-click="replot(3)">
+                        <div class="col-xs-12 valuehead">{{vh3}}</div><div class="valueplace" id="val3"></div>
+                      </div>
+                      <div class="col-sm-5 sensortab" ng-click="replot(4)">
+                        <div class="col-xs-12 valuehead">{{vh4}}</div><div class="valueplace" id="val4"></div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-5 sensortab" ng-click="replot(5)">
+                        <div class="col-xs-12 valuehead">{{vh5}}</div><div class="valueplace" id="val5"></div>
+                      </div>
+                      <div class="col-sm-5 sensortab" ng-click="replot(6)">
+                        <div class="col-xs-12 valuehead">{{vh6}}</div><div class="valueplace" id="val6"></div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-5 sensortab" ng-click="replot(7)">
+                        <div class="col-xs-12 valuehead">{{vh7}}</div><div class="valueplace" id="val7"></div>
+                      </div>
+                      <div class="col-sm-5 sensortab" ng-click="replot(8)">
+                        <div class="col-xs-12 valuehead" id="val8">{{vh8}}</div>
+                        <div class="valueplace"></div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6" id="grapharea">
+                    <div class="row">
+                      <div class="col-sm-6 pull-right" id="dynamictabs">
+                        <div class="pull-right dtab" id="pl1"><img ng-src="{{'static/logger/pics/liveplot.jpg'}}" alt="Live_Plot" height="100%" width="100%" /></div>
+                    <div class="dtab pull-right" id="pl2"><img ng-src="{{'static/logger/pics/saveplot.jpg'}}" alt="Save_Plot" height="100%" width="100%"/></div>
+                    <div class="dtab pull-right" id="pl3"><img ng-src="{{'static/logger/pics/refreshplot.jpg'}}" alt="Refresh_Plot" height="100%" width="100%"/></div>
+                    </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12 pull-left" id="platform"></div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
+            </div>

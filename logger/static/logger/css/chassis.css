@@ -1,0 +1,215 @@
+@keyframes showing{
+    from {width:0;
+        height:0;}
+    to {width:250px;
+        height:120px;}
+}
+@keyframes hiding{
+        from{height:120px;
+            width:250px;}
+        to{height:0;
+            width:0;}
+}
+h2{@keyframes showing{
+    from {width:0;
+        height:0;}
+    to {width:250px;
+        height:120px;}
+}
+@keyframes hiding{
+        from{height:120px;
+            width:250px;}
+        to{height:0;
+            width:0;}
+}
+h2{
+    padding:0;
+    margin:0;
+}
+#mainimg{
+    background-image: url(../pics/123456789.jpg);
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+.senbut{
+    position:absolute;
+    border:none;
+}
+.senbut:hover{
+    cursor:pointer;
+}
+.senbox{
+    color:white;
+    padding-top:10px;
+    position:absolute;
+    background-color: #062f4f;
+    z-index: 99;
+    text-align:center;
+}
+.inbox{
+    padding:0;
+    margin:5px 0 0 0;
+    background-color: #172937;
+    color:white;
+    font-weight: bold;
+    text-align:center;
+}
+#mc{
+    height:15px;
+    width:15px;
+    background-color:green;
+    left:68%;
+    top:50%;
+    z-index: 100;
+}
+#mcbox{
+    left:68%;
+    top:50%;
+}
+#chass_bms{
+    height:15px;
+    width:15px;
+    background-color:green;
+    left:47%;
+    top:72%;
+    z-index: 100;     
+}
+#bmsbox{
+    left:47%;
+    top:72%;    
+}
+#dc{
+    height:15px;
+    width:15px;
+    background-color:green;
+    left:57%;
+    top:48%;
+    z-index: 100;     
+}
+#dcbox{
+    left:57%;
+    top:48%;    
+}
+#mppt{
+    height:15px;
+    width:15px;
+    background-color:green;
+    left:69%;
+    top:73%;
+    z-index: 100;     
+}
+#mpptbox{
+    left:69%;
+    top:73%;  
+}
+.hide{
+    animation-name:hiding;
+    animation-duration: 0.2s;
+    display:none;
+    width:0px;
+    height:0px;
+}
+.show{
+    animation-name:showing;
+    animation-duration: 0.2s;
+    width:250px;
+    height:120px;
+}
+    padding:0;
+    margin:0;
+}
+#mainimg{
+    background-image: url(../pics/123456789.jpg);
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    height:70vh;
+}
+.senbut{
+    position:absolute;
+    border:none;
+}
+.senbut:hover{
+    cursor:pointer;
+}
+.senbox{
+    color:white;
+    padding-top:10px;
+    position:absolute;
+    background-color: #062f4f;
+    z-index: 99;
+    text-align:center;
+}
+.inbox{
+    padding:0;
+    margin:5px 0 0 0;
+    background-color: #172937;
+    color:white;
+    font-weight: bold;
+    text-align:center;
+}
+#mc{
+    height:15px;
+    width:15px;
+    background-color:green;
+    left:68%;
+    top:50%;
+    z-index: 100;
+}
+#mcbox{
+    left:68%;
+    top:50%;
+}
+#chass_bms{
+    height:15px;
+    width:15px;
+    background-color:green;
+    left:47%;
+    top:72%;
+    z-index: 100;     
+}
+#bmsbox{
+    left:47%;
+    top:72%;    
+}
+#dc{
+    height:15px;
+    width:15px;
+    background-color:green;
+    left:57%;
+    top:48%;
+    z-index: 100;     
+}
+#dcbox{
+    left:57%;
+    top:48%;    
+}
+#mppt{
+    height:15px;
+    width:15px;
+    background-color:green;
+    left:69%;
+    top:73%;
+    z-index: 100;     
+}
+#mpptbox{
+    left:69%;
+    top:73%;  
+}
+.hide{
+    animation-name:hiding;
+    animation-duration: 0.2s;
+    display:none;
+    width:0px;
+    height:0px;
+}
+.show{
+    animation-name:showing;
+    animation-duration: 0.2s;
+    width:250px;
+    height:120px;
+}
+@media all and (max-width: 1366px) and (min-width: 400px){
+	#mainimg{
+		height:60vh;
+	}
+}

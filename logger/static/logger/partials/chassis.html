@@ -1,0 +1,52 @@
+<div class="col-md-11" id="workplace">
+            <div class="col-sm-11" id="mainimg">
+            <button class="senbut" id="mc" onmouseover ="hover('mcbox','mc');" onmouseout="out('mcbox','mc');"></button>
+            <div id="mcbox" class="hide senbox">
+                <h2><strong>Motor Controller</strong></h2>
+                <div class="inbox">
+                <p>Voltage:</p>
+                <p>Current:</p>
+                </div>
+            </div>
+        <button class="senbut" id="chass_bms" onmouseover ="hover('bmsbox','chass_bms');" onmouseout="out('bmsbox','chass_bms');"></button>
+            <div id="bmsbox" class="hide senbox">
+                <h2><strong>BMS</strong></h2>
+                <div class="inbox">
+                <p>Voltage:</p>
+                <p>Current:</p>
+                </div>
+            </div>
+        <button class="senbut" id="dc" onmouseover ="hover('dcbox','dc');" onmouseout="out('dcbox','dc');"></button>
+            <div id="dcbox" class="hide senbox">
+                <h2><strong>DC to DC</strong></h2>
+                <div class="inbox">
+                <p>Voltage:</p>
+                <p>Current:</p>
+                </div>
+            </div>
+        <button class="senbut" id="mppt" onmouseover ="hover('mpptbox','mppt');" onmouseout="out('mpptbox','mppt');"></button>
+            <div id="mpptbox" class="hide senbox">
+                <h2><strong>MPPT</strong></h2>
+                <div class="inbox">
+                <p>Voltage:</p>
+                <p>Current:</p>
+                </div>
+            </div>
+            <script>
+    function hover(id1,id2) {
+    var el = document.getElementById(id1);
+    var box = el.getAttribute("class");
+        document.getElementById(id2).style.zIndex = "102";
+        el.style.zIndex = "101";
+        el.setAttribute("class", "show senbox");
+    }
+    function out(id1,id2){
+        var el = document.getElementById(id1);
+        var box = el.getAttribute("class");
+        document.getElementById(id2).style.zIndex = "100";
+        el.style.zIndex = "99";
+        el.setAttribute("class", "hide senbox");
+    }
+    </script>
+            </div>
+        </div>
