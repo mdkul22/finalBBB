@@ -30,9 +30,6 @@ class My_App(wx.App):
         self.SetTopWindow(self.frame)
         return True
 
-    def return_dict(self):
-        return self.imp_dict
-
     def OnExit(self):
         print('Dying ...')
 
@@ -48,12 +45,10 @@ class MyFrame(wx.Frame):
         wx.Frame.__init__(self, parent, id, 'GUI', pos, size)
 
         self.sizer_h = wx.BoxSizer(wx.HORIZONTAL)
-        log = Logger()
         # thread
         thread = Thread(target=serial_reading_function())
         thread.start()
-
-        self.imp_dict = log.checkr(log.readr())
+        # panels intialization
         self.panel0 = MyPanel(self)
         self.sizer_h.Add(self.panel0, 1, wx.EXPAND)
 
@@ -123,8 +118,6 @@ class MyPanel(wx.Panel):
         self.timer7 = wx.Timer(self)
         self.Bind(wx.EVT_TIMER, self.updatemaxc, self.timer7)
         self.timer7.Start(10)
-        # dictionary of lists
-        self.imp_dict = {}
         # title
         title = wx.StaticText(self, -1, 'Battery')
         title.SetFont(wx.Font(24, wx.DEFAULT, wx.BOLD, wx.FONTWEIGHT_BOLD))
@@ -241,7 +234,6 @@ class MyPanel(wx.Panel):
         warnSizer.Add(self.wbutton1, 0, wx.ALL, 5)
         warnSizer.Add(self.wbutton2, 0, wx.ALL, 5)
         warnSizer.Add(self.wbutton3, 0, wx.ALL, 5)
-
         warnSizer_h.Add(warnSizer, 0, wx.CENTER, 5)
 
         titleSizer.Add(title, 0, wx.ALL, 5)
@@ -273,7 +265,6 @@ class MyPanel(wx.Panel):
         self.SetPosition((0, 0))
         self.Bind(wx.EVT_ERASE_BACKGROUND, self.OnEraseBackground)
         # value declarations
-
         self.btq1 = 0
         self.btq2 = 0
         self.btq3 = 0
@@ -283,7 +274,7 @@ class MyPanel(wx.Panel):
         self.maxc = 0
 
     def DictUpdater(self, event):
-        self.imp_dict = log.return_bat()
+        self.imp_dict = log.sensor_val
 
     def OnEraseBackground(self, evt):
         dc = evt.GetDC()
@@ -334,7 +325,7 @@ class MyPanel(wx.Panel):
             else:
                 self.labelTwo.SetForegroundColour('white')
 
-        elif (self.btq1, self.btq2, self.btq2, self.btq4) > 65 or (self.maxc, self.maxdisc) > 600 or self.mindisc < 500:
+        elif (self.btq1, self.btq2, self.btq2, self.btq4) > 65 or (self.maxc, self.maxdisc) > 600 or self.mindisc < 500):
             self.wbutton1.SetBackgroundColour('red')
             self.GetParent().panel1.wbutton1.SetBackgroundColour('red')
             self.GetParent().panel2.wbutton1.SetBackgroundColour('red')
@@ -450,8 +441,6 @@ class MyPanel1(wx.Panel):
         self.timer1 = wx.Timer(self)
         self.Bind(wx.EVT_TIMER, self.updatesp2mppt(), self.timer2)
         self.timer2.Start(10)
-        # dictionary of lists
-
         # buttons and labels
         title = wx.StaticText(self, -1, 'MPPT')
         title.SetFont(
@@ -557,7 +546,7 @@ class MyPanel1(wx.Panel):
         self.Bind(wx.EVT_ERASE_BACKGROUND, self.OnEraseBackground)
 
     def DictUpdater(self, event):
-        self.imp_dict = log.return_mppt()
+        self.imp_dict = log.sensor_val
 
     def OnEraseBackground(self, evt):
         dc = evt.GetDC()
@@ -681,7 +670,6 @@ class MyPanel2(wx.Panel):
         self.timer6 = wx.Timer(self)
         self.Bind(wx.EVT_TIMER, self.updatemc2bc, self.timer6)
         self.timer6.Start(10)
-
         # title
         title = wx.StaticText(self, -1, 'Motor Controller')
         title.SetFont(
@@ -823,7 +811,7 @@ class MyPanel2(wx.Panel):
         self.mc2mrc = 0
 
     def DictUpdater(self, event):
-        self.imp_dict = log.return_mc()
+        self.imp_dict = log.sensor_val
 
     def OnEraseBackground(self, evt):
         dc = evt.GetDC()
@@ -985,7 +973,6 @@ class MyPanel3(wx.Panel):
         self.timer6 = wx.Timer(self)
         self.Bind(wx.EVT_TIMER, self.updateoiltemp, self.timer6)
         self.timer6.Start(9)
-
         # title creator
         title = wx.StaticText(self, -1, 'General')
         title.SetFont(
@@ -1207,7 +1194,7 @@ class MyPanel3(wx.Panel):
 
 
 def main(val):
-    app = My_App(redirect=False, sensor_dict=val)
+    app = My_App(redirect=False)
     app.MainLoop()
 
 if __name__ == '__main__':
